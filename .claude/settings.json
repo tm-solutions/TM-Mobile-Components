@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node toast.mjs C:/Users/gonza/AppData/Local/Temp/claude/c--TM-SOLUTIONS-TM-Components-UI/8d3273cc-0a9e-43aa-815b-4b1ae20ab1ca/scratchpad)",
+      "Bash(node confirm.mjs C:/Users/gonza/AppData/Local/Temp/claude/c--TM-SOLUTIONS-TM-Components-UI/8d3273cc-0a9e-43aa-815b-4b1ae20ab1ca/scratchpad)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

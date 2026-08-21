@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "nativewind",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    /**
+     * Los archivos de registry/tm conservan los imports que necesita el
+     * proyecto destino (@/lib/utils, @/components/ui/text). Aqui se redirigen a
+     * su ubicacion real, para que se copien y funcionen sin editar una linea.
+     * Por eso la UI del catalogo vive en components/docs, no en components/ui.
+     */
+    "paths": {
+      "@/lib/utils": ["./registry/tm/lib/utils.ts"],
+      "@/lib/notify": ["./registry/tm/lib/notify.ts"],
+      "@/components/ui/*": ["./registry/tm/ui/*"],
+      "@/components/forms/*": ["./registry/tm/forms/*"],
+      "@/components/navigation/*": ["./registry/tm/navigation/*"],
+      "@/components/layout/*": ["./registry/tm/layout/*"],
+      "@/hooks/*": ["./registry/tm/hooks/*"],
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}

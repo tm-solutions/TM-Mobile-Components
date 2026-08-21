@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Paleta tomada de TM-Tracker_Premium_expo: azul #1D4ED8 (blue-700) sobre
+ * grises slate. Es el color que ya usan las pantallas del Tracker — el drawer,
+ * los checks del picker y los botones principales.
+ *
+ * Mantener en sincronia con el bloque SETUP de registry/index.ts, que es lo que
+ * el catalogo le dice al dev que pegue en su global.css.
+ */
+/**
+ * Azul corporativo de TM Solutions, muestreado del logo: #2128BD.
+ *
+ * Viste el catalogo (header, navegacion, acentos). NO se usa en los tokens de
+ * abajo a proposito: esos son los de las apps, y si los pisara con el azul del
+ * logo las vistas previas mostrarian un color que los componentes no tienen en
+ * produccion.
+ */
+@layer base {
+  :root {
+    --tm: 237.3 70.3% 43.5%;
+    --tm-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    /* blue-700 #1D4ED8 */
+    --primary: 224.3 76.3% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 224.3 76.3% 48%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    /* blue-500 #3B82F6: el blue-700 no contrasta lo suficiente en oscuro */
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
