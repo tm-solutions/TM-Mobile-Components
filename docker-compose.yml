@@ -1,0 +1,37 @@
+services:
+  tm-components-ui:
+    # Igual que en TM_Land_React: el build se hace en el servidor
+    # (git pull && docker compose up -d --build).
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: tm-components-ui
+    container_name: tm-components-ui
+    # Host 3000: TM_Land_React ya toma el 3001 en su propio compose.
+    # Si adelante queda un nginx en el mismo servidor, conviene cerrarlo al
+    # exterior cambiando esta linea por "127.0.0.1:3000:3000".
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    # Levanta solo tras un reboot del servidor o si el proceso muere.
+    restart: unless-stopped
+    # Sin esto los logs crecen sin limite y llenan el disco del servidor.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # node en vez de curl/wget: la imagen es alpine y no trae curl.
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3

@@ -13,6 +13,10 @@ import type { NextConfig } from "next";
  * al codigo de la app). Los scripts de package.json pasan `--webpack`.
  */
 const nextConfig: NextConfig = {
+  // Empaqueta el server y solo las dependencias trazadas en .next/standalone,
+  // que es lo que copia el Dockerfile.
+  output: "standalone",
+
   // Publican TSX/JSX sin compilar, o codigo que necesita pasar por el alias.
   // Al sumar un @rn-primitives/* nuevo al registry, agregalo aqui.
   transpilePackages: [
